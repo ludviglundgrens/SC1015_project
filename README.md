@@ -4,7 +4,7 @@ This is a Mini-project
 
 ## Contributors
 - @ludviglundgrens (N2202950F@e.ntu.edu.sg)
-- NAHID001@e.ntu.edu.sg)
+- @zaphrode (NAHID001@e.ntu.edu.sg)
 - YOH014@e.ntu.edu.sg
 
 ## Problem Definition
