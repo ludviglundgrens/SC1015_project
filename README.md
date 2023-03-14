@@ -13,4 +13,4 @@ This is a Mini-project
 
 ### To do:
 - Merge datasets
-- Filter out player_valuation dataset for dates before start of this season (2022-08-06, start of Premiere League). 
+- Filter out player_valuation dataset for dates before start of this season (2021-08-13 : 2022-08-06, start of Premiere League). 
