@@ -41,7 +41,7 @@ This is a Mini-project
 |ShoPK|Penalty Kicks Taken|GcaDef|Defensive actions that lead to a goal|CrdY|Yellow cards
 |PasTotCmp|Passes Completed|Tkl|Number of players tackled|CrdR|Red cards
 |PasTotCmp%|Pass Completion %|TklWon|Tackles in which the tackler's team won possession of the ball|Fls|Fouls committed
-|PasTotPrgDist|Total Dist. of Completed Forward Passes towards Goal|TklAtt3rd|Fld|Fouls drawn
+|PasTotPrgDist|Total Dist. of Completed Forward Passes towards Goal|TklAtt3rd|Tackles in attacking 1/3|Fld|Fouls drawn
 |Assists|Assists that lead to goals|Press%|Percentage of time the squad gained possession withing five seconds of applying pressure|Off|Offsides
 |PasAss|Passes to lead to shots|PresSucc|Number of times the squad gained possession withing five seconds of applying pressure|Crs|Crosses
 |PPA|Completed Passes into box|Touches|Number of times a player touched the ball. Note: Receiving a pass, then dribbling, then sending a pass counts as one touch|TklW|Tackles in which the tackler's team won possession of the ball
