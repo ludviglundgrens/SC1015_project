@@ -55,30 +55,31 @@ Age, MP, Min, 90s, Goals, Shots, SoT, SoT%, G/Sh, G/SoT, ShoDist, ShoFK, ShoPK, 
 -Midfielders: 
 |column|name|column|name|column|name|
 |------|----|------|----|------|----|
-|Age|Player's age|
-|MP|Mathces played|
-|90s|Minutes played divided by 90|
-|Goals|Goals scored or allowed|
-|SoT|
-|SoT%|
-|G/Sh|
-|G/SoT|
-|ShoDist|
-|ShoFK|
-|ShoPK|
-|Assists|
-|PasTotCmp|
-|PasTotCmp%|
-|PasTotDist|
-|PasTotPrgDist|
-|PasShoCmp|
-|PasShoAtt|
-|PasShoCmp%|
-|PasMedCmp|
-|PasMedAtt|
-|PasMedCmp%|
-|PasLonCmp|
+|Age|Player's age|PasLonCmp%|Pass completion percentage (Passes longer than 30 yards)|PaswOther|Passes attempted using body parts other than the player's head or feet|TklMid3rd|Tackles in middle 1/3|TouLive|Live-ball touches. Does not include corner kicks, free kicks, throw-ins, kick-offs, goal kicks or penalty kicks|Crs|Crosses|
+|MP|Mathces played|Assists|Assists|PasCmp|Passes completed|TklAtt3rd|Tackles in attacking 1/3|DriSucc|Dribbles completed successfully|TklW|Tackles in which the tackler's team won possession of the ball|
+|90s|Minutes played divided by 90|PasAss|Passes that directly lead to a shot (assisted shots)|PasOff|Offsides|TklDri|Number of dribblers tackled|DriAtt|Dribbles attempted|PKwon|Penalty kicks won|
+|Goals|Goals scored or allowed|Pas3rd|Completed passes that enter the 1/3 of the pitch closest to the goal|PasOut|Out of bounds|TklDriAtt|Number of times dribbled past plus number of tackles|DriSucc%|Percentage of dribbles completed successfully|PKcon|Penalty kicks conceded|
+|SoT|Shots on target (Does not include penalty kicks)|PPA|Completed passes into the 18-yard box|PasInt|Intercepted|TklDri%|Percentage of dribblers tackled|DriPast|Number of players dribbled past|Recov|Number of loose balls recovered|
+|SoT%|Shots on target percentage (Does not include penalty kicks)|CrsPA|Completed crosses into the 18-yard box|PasBlocks|Blocked by the opponent who was standing it the path|TklDriPast|Number of times dribbled past by an opposing player|DriMegs|Number of times a player dribbled the ball through an opposing player's legs|AerWon|Aerials won|
+|G/Sh|Goals per shot|PasProg|Completed passes that move the ball towards the opponent's goal at least 10 yards from its furthest point in the last six passes, or any completed pass into the penalty area|SCA|Shot-creating actions|Press|Number of times applying pressure to opposing player who is receiving, carrying or releasing the ball|Carries|Number of times the player controlled the ball with their feet|AerLost|Aerials lost|
+|G/SoT|Goals per shot on target (Does not include penalty kicks)|PasAtt|Passes attempted|ScaPassLive|Completed live-ball passes that lead to a shot attempt|PresDef3rd|Number of times applying pressure to opposing player who is receiving, carrying or releasing the ball, in the defensive 1/3|CarTotDist|Total distance, in yards, a player moved the ball while controlling it with their feet, in any direction|AerWon%|Percentage of aerials won|
+|ShoDist|Average distance, in yards, from goal of all shots taken (Does not include penalty kicks)|PasLive|Live-ball passes|ScaPassDead|Completed dead-ball passes that lead to a shot attempt|PresMid3rd|Number of times applying pressure to opposing player who is receiving, carrying or releasing the ball, in the middle 1/3|CarPrgDist|Total distance, in yards, a player moved the ball while controlling it with their feet towards the opponent's goal|
+|ShoFK|Shots from free kicks|PasDead|Dead-ball passes|ScaDrib|Successful dribbles that lead to a shot attempt|PresAtt3rd|Number of times applying pressure to opposing player who is receiving, carrying or releasing the ball, in the attacking 1/3|CarProg|Carries that move the ball towards the opponent's goal at least 5 yards, or any carry into the penalty area|
+|ShoPK|Penalty kicks made|PasFK|Passes attempted from free kicks|ScaSh|Shots that lead to another shot attempt|Blocks|Number of times blocking the ball by standing in its path|Car3rd|Carries that enter the 1/3 of the pitch closest to the goal|
+|PasTotCmp|Passes completed|TB|Completed pass sent between back defenders into open space|ScaFld|Fouls drawn that lead to a shot attempt|BlkSh|Number of times blocking a shot by standing in its path|CPA|Carries into the 18-yard box|
+|PasTotCmp%|Pass completion percentage|PasPress|Passes made while under pressure from opponent|ScaDef|Defensive actions that lead to a shot attempt|BlkShSv|Number of times blocking a shot that was on target, by standing in its path|CarMis|Number of times a player failed when attempting to gain control of a ball|
+|PasTotDist|Total distance, in yards, that completed passes have traveled in any direction|Sw|Passes that travel more than 40 yards of the width of the pitch|GCA|Goal-creating actions|BlkPass|Number of times blocking a pass by standing in its path|CarDis|Number of times a player loses control of the ball after being tackled by an opposing player|
+|PasTotPrgDist|Total distance, in yards, that completed passes have traveled towards the opponent's goal|PasCrs|Crosses|GcaPassLive|Completed live-ball passes that lead to a goal|Int|Interceptions|RecTarg|Number of times a player was the target of an attempted pass|
+|PasShoCmp|Passes completed (Passes between 5 and 15 yards)|CK|Corner kicks|GcaPassDead|Completed dead-ball passes that lead to a goal|Clr|Clearances|Rec|Number of times a player successfully received a pass|
+|PasShoAtt|Passes attempted (Passes between 5 and 15 yards)|PasGround|Ground passes|GcaDrib|Successful dribbles that lead to a goal|Err|Mistakes leading to an opponent's shot|Rec%|Percentage of time a player successfully received a pass|
+|PasShoCmp%|Pass completion percentage (Passes between 5 and 15 yards)|PasLow|Passes that leave the ground, but stay below shoulder-level|GcaSh|Shots that lead to another goal-scoring shot|Touches|Number of times a player touched the ball. Note: Receiving a pass, then dribbling, then sending a pass counts as one touch|RecProg|Completed passes that move the ball towards the opponent's goal at least 10 yards from its furthest point in the last six passes, or any completed pass into the penalty area|
+|PasMedCmp|Passes completed (Passes between 15 and 30 yards)|PasHigh|Passes that are above shoulder-level at the peak height|GcaFld|Fouls drawn that lead to a goal|TouDefPen|Touches in defensive penalty area|CrdY|Yellow cards|
+|PasMedAtt|Passes attempted (Passes between 15 and 30 yards)|PaswLeft|Passes attempted using left foot|GcaDef|Defensive actions that lead to a goal|TouDef3rd|Touches in defensive 1/3|CrdR|Red cards|
+|PasMedCmp%| Pass completion percentage (Passes between 15 and 30 yards)|PaswRight|Passes attempted using right foot|Tkl|Number of players tackled|TouMid3rd|Touches in middle 1/3|Fls|Fouls committed|
+|PasLonCmp|Passes completed (Passes longer than 30 yards)|PaswHead|Passes attempted using head|TklWon|Tackles in which the tackler's team won possession of the ball|TouAtt3rd|Touches in attacking 1/3|Fld|Fouls drawn|
+|PasLonAtt|Passes attempted (Passes longer than 30 yards)|TI|Throw-Ins taken|TklDef3rd|Tackles in defensive 1/3|TouAttPen|Touches in attacking penalty area|Off|Offsides|
 
-Age, MP, Min, 90s, Goals, SoT, SoT%, G/Sh, G/SoT, ShoDist, ShoFK, ShoPK, Assists, PasTotCmp, PasTotCmp%, PasTotDist, PasTotPrgDist, PasShoCmp, PasShoAtt, PasShoCmp%, PasMedCmp, PasMedAtt, PasMedCmp%, PasLonCmp, PasLonAtt, PasLonCmp%, Assists, PasAss, Pas3rd, PPA, CrsPA, PasProg, PasAtt, PasLive, PasDead, PasFK, TB, PasPress, Sw, PasCrs, CK, PasGround, PasLow, PasHigh, PaswLeft, PaswRight, PaswHead, TI, PaswOther, PasCmp, PasOff, PasOut, PasInt, PasBlocks, SCA, ScaPassLive, ScaPassDead, ScaDrib, ScaSh, ScaFld, ScaDef, GCA, GcaPassLive, GcaPassDead, GcaDrib, GcaSh, GcaFld, GcaDef, Tkl, TklWon, TklDef3rd, TklMid3rd, TklAtt3rd, TklDri, TklDriAtt, TklDri%, TklDriPast, Press, PresSucc, Press%, PresDef3rd, PresMid3rd, PresAtt3rd, Blocks, BlkSh, BlkShSv, BlkPass, Int, Int, Clr, Err, Touches, TouDefPen, TouDef3rd, TouMid3rd, TouAtt3rd, TouAttPen, TouLive, DriSucc, DriAtt, DriSucc%, DriPast, DriMegs, Carries, CarTotDist, CarPrgDist, CarProg, Car3rd, CPA, CarMis, CarDis, RecTarg, Rec, Rec%, RecProg, CrdY, CrdR, Fls, Fld, Off, Crs, TklW, PKwon, PKcon, Recov, AerWon, AerLost, AerWon%
+
+Age, MP, Min, 90s, Goals, SoT, SoT%, G/Sh, G/SoT, ShoDist, ShoFK, ShoPK, Assists, PasTotCmp, PasTotCmp%, PasTotDist, PasTotPrgDist, PasShoCmp, PasShoAtt, PasShoCmp%, PasMedCmp, PasMedAtt, PasMedCmp%, PasLonCmp, PasLonAtt, PasLonCmp%, Assists, PasAss, Pas3rd, PPA, CrsPA, PasProg, PasAtt, PasLive, PasDead, PasFK, TB, PasPress, Sw, PasCrs, CK, PasGround, PasLow, PasHigh, PaswLeft, PaswRight, PaswHead, TI, PaswOther, PasCmp, PasOff, PasOut, PasInt, PasBlocks, SCA, ScaPassLive, ScaPassDead, ScaDrib, ScaSh, ScaFld, ScaDef, GCA, GcaPassLive, GcaPassDead, GcaDrib, GcaSh, GcaFld, GcaDef, Tkl, TklWon, TklDef3rd, TklMid3rd, TklAtt3rd, TklDri, TklDriAtt, TklDri%, TklDriPast, Press, PresSucc, Press%, PresDef3rd, PresMid3rd, PresAtt3rd, Blocks, BlkSh, BlkShSv, BlkPass, Int, Clr, Err, Touches, TouDefPen, TouDef3rd, TouMid3rd, TouAtt3rd, TouAttPen, TouLive, DriSucc, DriAtt, DriSucc%, DriPast, DriMegs, Carries, CarTotDist, CarPrgDist, CarProg, Car3rd, CPA, CarMis, CarDis, RecTarg, Rec, Rec%, RecProg, CrdY, CrdR, Fls, Fld, Off, Crs, TklW, PKwon, PKcon, Recov, AerWon, AerLost, AerWon%
 
 -Defenders: Age, MP, Min, 90s, Goals, PasTotCmp, PasTotAtt, PasTotAtt, PasTotAtt, PasTotPrgDist, PasShoCmp%, PasMedCmp%, PasLonCmp%, Assists, PasAss, PPA, CrsPA, PasProg, TB, PasPress, Sw, PasCrs, PasGround, PasLow, PasHigh, PaswLeft, PaswRight, PaswHead, TI, PaswOther, PasCmp, PasOff, PasOut, PasInt, PasBlocks, ScaDef, GCA, GcaSh, GcaDef, Tkl, TklWon, TklDef3rd, TklMid3rd, TklAtt3rd, TklDri, TklDriAtt, TklDri%, TklDriPast, Press, PresSucc, Press%, PresDef3rd, PresMid3rd, PresAtt3rd, Blocks, BlkSh, BlkShSv, BlkPass, Int, Tkl+Int, Clr, Err, Touches, TouDefPen, TouDef3rd, TouMid3rd, TouAtt3rd, TouLive, DriSucc%, Carries, CarTotDist, CarPrgDist, CarProg, Car3rd, CarMis, CarDis, RecTarg, Rec, Rec%, RecProg, CrdY, CrdR, Fls, Fld, Off, Crs, TklW, PKcon, OG, Recov, AerWon, AerLost, AerWon%  
