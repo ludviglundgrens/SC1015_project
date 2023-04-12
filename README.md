@@ -8,18 +8,26 @@ This is a Mini-project
 - @twoeasy3 (YOH014@e.ntu.edu.sg)
 
 ## Problem Definition
-- Utilizing multiple sources, we investigate if we are able to predict player valuation for the next season (2022 season), based on the player historical  player statistics. 
+- Utilizing multiple sources, we investigate if we are able to predict player valuation for the next season (2022 season), based on the player historical  player statistics
 - We also analyses what machine learning model is suitable for this prediction.
+- Using these player valuations, we identify potential undervalued players for clubs with budget constraints to purchase
+
+## Problems Encountered:
+- Player statistic dataset did not contain player valuation. Hence, needed to merge player statistic and player valuation dataset
+- Dataset only contains outfield player attributes. Goalkeeping attributes not present, hence Goalkeepers need to be removed to prevent innacurate valuations.
+- Attribute's importance varies between Attackers, Midfielders, Defenders. Hence, needed to filter out which attributes were important for each player. We first filtered it manually based on our football knowledge, trying to keep as many attributes as possible (below are tables of the manually filtered attributes). Then, we used SKLearn to find out which attributes were less important and could be removed.
 
 ## Done: 
 - Merge datasets
 - Filter out player_valuation dataset for dates before start of this season (2021-08-13 : 2022-08-06, start of Premiere League). 
 - list attributes important to positions
-
-### To do:
 - Remove Goalkeepers from Dataset
 - Perform Exploratory Data Analysis & Visualisations
 
+### To do:
+- Choose best model
+- Do Neural Network
+- Highlight Undervalued Players
 
 
 #Atrributes:
