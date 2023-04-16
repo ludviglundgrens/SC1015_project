@@ -1,6 +1,8 @@
 # SC1015 - Football player valuation analysis
 ## About
-This is a Mini-project 
+This is a mini-project where we research the valuation of soccer players as a funciton of their performance in the season 2021/2022. The implications of our findings is easies explored thru the featured dashboard (built with [Streamlit](https://streamlit.io/)). To run the dashboard, make sure all dependencies are installed and run 
+
+  streamlit run ./script/dashboard.py
 
 ## Contributors
 - @ludviglundgrens (N2202950F@e.ntu.edu.sg)
@@ -28,7 +30,6 @@ This is a Mini-project
 - Choose best model
 - Do Neural Network
 - Highlight Undervalued Players
-
 
 #Atrributes:
 -Forwards: 
