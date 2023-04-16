@@ -11,8 +11,7 @@ st.set_page_config(
     page_icon="✅",
     layout="wide",
 )
-
-st.title("Player valuation dashboard")
+st.title("Analysis of player valuation")
 
 @st.cache_data # make this function only run once (memoized)
 def load_data():
@@ -29,23 +28,26 @@ def load_data():
 
     X = data.drop(columns=["market_value_in_eur"]).select_dtypes(exclude=['object'])
     Y = data['market_value_in_eur']
-    X_train, X_test, Y_train, Y_test = train_test_split(X,Y,test_size = 0.33, shuffle = True)
+    X_train, _, Y_train, _ = train_test_split(X,Y,test_size = 0.33, shuffle = True)
     regr = RandomForestRegressor(max_depth=2, random_state=0).fit(X_train, Y_train)
     return data, regr
 
 df, model = load_data()
 
-player = st.selectbox("Select the Job", pd.unique(df["Player"]))
+player = st.selectbox("Select the player to analyze", pd.unique(df["Player"]))
 placeholder = st.empty()
 
 if not player:
-    st.error("Please select a players")
+    st.error("Please select a players", icon="🚨")
 else:
-    st.write("Analysis of", player)
-    
+    st.write("### Input data for", player)
+
     # Extract player data
     df["col"] = df["Player"]==player
+    player_df = df[df["col"]==1]
     # Plot all players
+    st.write(player_df)
+
     fig = px.scatter(df,
                     x = "Goals", 
                     y = "market_value_in_eur", 
@@ -53,14 +55,19 @@ else:
                     color = "col",
                     labels = {'col': 'Choosen player:', 'market_value_in_eur': 'Market Value (EUR)'},
                     color_discrete_sequence=px.colors.qualitative.G10)
-
-    # Mark out point with player
-    # fig.add_scatter(player_df,
-    #                 x = "Goals", 
-    #                 y = "market_value_in_eur", 
-    #                 hover_name = "Player")
-    
-    # Render chart to dashboard
     st.plotly_chart(fig)
+
+    st.write("### Model value prediction for", player)
+    pred_df = player_df.drop(columns=["market_value_in_eur", "col"]).select_dtypes(exclude=['object'])
+    pred_value = model.predict(pred_df).item(0)
+    act_value = player_df["market_value_in_eur"].values.item(0)
+    diff_pct = 100*(act_value/pred_value - 1)
+    st.write("Estimated player value is", str(round(pred_value/(10**6))), "MEUR.")
+    st.write("Actual player value is", str(round(act_value/(10**6))), "MEUR.")
+    if act_value > pred_value:
+        st.write("According to the model the  player is", str(round(diff_pct)), "percent overvalued.")
+    else: 
+        st.write("According to the model the  player is", str(round(-diff_pct)), "percent undervalued.")
+    
 
 
