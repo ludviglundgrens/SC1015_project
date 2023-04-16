@@ -139,3 +139,6 @@ Age, MP, Min, 90s, Goals, PasTotCmp, PasTotAtt, PasTotCmp%, PasTotDist, PasTotPr
 
 </details>
 
+
+## Sources 
+https://blog.streamlit.io/how-to-build-a-real-time-live-dashboard-with-streamlit/
