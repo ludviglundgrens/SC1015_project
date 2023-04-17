@@ -21,6 +21,11 @@ This is a mini-project where we research the valuation of soccer players as a fu
 - Dataset only contains outfield player attributes. Goalkeeping attributes not present, hence Goalkeepers need to be removed to prevent innacurate valuations.
 - Attribute's importance varies between Attackers, Midfielders, Defenders. Hence, needed to filter out which attributes were important for each player. We first filtered it manually based on our football knowledge, trying to keep as many attributes as possible (below are tables of the manually filtered attributes). Then, we used SKLearn to find out which attributes were less important and could be removed.
 
+## To do:
+- Choose best model
+- Do Neural Network
+- Highlight Undervalued Players
+
 ## Done: 
 - Merge datasets
 - Filter out player_valuation dataset for dates before start of this season (2021-08-13 : 2022-08-06, start of Premiere League). 
@@ -28,12 +33,7 @@ This is a mini-project where we research the valuation of soccer players as a fu
 - Remove Goalkeepers from Dataset
 - Perform Exploratory Data Analysis & Visualisations
 
-### To do:
-- Choose best model
-- Do Neural Network
-- Highlight Undervalued Players
-
-#Atrributes:
+## Atrributes:
 <details>
   <summary>Forwards</summary>
 
