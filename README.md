@@ -34,6 +34,7 @@ This is a mini-project where we research the valuation of soccer players as a fu
 - Perform Exploratory Data Analysis & Visualisations
 
 ## Atrributes:
+
 <details>
   <summary>Forwards</summary>
 
