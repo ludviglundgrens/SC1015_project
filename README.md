@@ -1,6 +1,6 @@
 # SC1015 - Football player valuation analysis
 ## About
-This is a mini-project where we research the valuation of soccer players as a funciton of their performance in the season 2021/2022. The implications of our findings is easies explored thru the featured dashboard (built with [Streamlit](https://streamlit.io/)). To run the dashboard, make sure all dependencies are installed and run 
+This is a mini-project where we research the valuation of soccer players as a funciton of their performance in the season 2021/2022. The implications of our findings is easiest explored thru the featured dashboard (built with [Streamlit](https://streamlit.io/)). To run the dashboard, make sure all dependencies are installed and run 
 
 ```console
   streamlit run ./script/dashboard.py
