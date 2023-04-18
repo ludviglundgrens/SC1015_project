@@ -3,8 +3,10 @@ import pandas as pd
 import numpy as np
 import plotly.express as px
 import streamlit as st
+import os
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.model_selection import train_test_split
+from PIL import Image
 
 st.set_page_config(
     page_title="Real-Time Data Science Dashboard",
@@ -33,7 +35,8 @@ def load_data():
     return data, regr
 
 df, model = load_data()
-
+df = df.sort_values(['Player'],
+              ascending = [True])
 player = st.selectbox("Select the player to analyze", pd.unique(df["Player"]))
 placeholder = st.empty()
 
@@ -47,6 +50,16 @@ else:
     player_df = df[df["col"]==1]
     # Plot all players
     st.write(player_df)
+    imageString = '../data/images/clubs/' + player_df.loc[df['Player'] == player, 'Squad'].item() + ".png"
+    leagueString = '../data/images/leagues/' + player_df.loc[df['Player'] == player, 'Comp'].item() + ".png"
+    playerString = '../data/images/players/' + player_df.loc[df['Player'] == player, 'Player'].item() + ".png"
+    if os.path.isfile(playerString):
+        playerImage = Image.open(playerString)
+    else:
+        playerImage = Image.open('../data/images/players/!noImage.png')
+    logo = Image.open(imageString)
+    league = Image.open(leagueString)
+    st.image([playerImage,logo,league,],width=100)
 
     fig = px.scatter(df,
                     x = "Goals", 
