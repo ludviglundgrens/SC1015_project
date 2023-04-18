@@ -5,11 +5,16 @@ This is a mini-project where we research the valuation of soccer players as a fu
 ```console
   streamlit run ./script/dashboard.py
 ```
-
 ## Contributors
 - @ludviglundgrens (N2202950F@e.ntu.edu.sg)
 - @zaphrode (NAHID001@e.ntu.edu.sg)
 - @twoeasy3 (YOH014@e.ntu.edu.sg)
+
+## Datasets used
+- Player stats from Kaggle (https://www.kaggle.com/datasets/vivovinco/20212022-football-player-stats)
+- Player TransferMarkt Valuations from Kaggle (https://www.kaggle.com/datasets/davidcariboo/player-scores?select=players.csv)
+- Club Crests from Kaggle (https://www.kaggle.com/datasets/alexteboul/top-5-football-leagues-club-logos?resource=download)
+- Player Images scraped from FutHead, originally from FIFA 22 (https://www.futhead.com/22/players/?level=all_nif)
 
 ## Problem Definition
 - Utilizing multiple sources, we investigate if we are able to predict player valuation for the next season (2022 season), based on the player historical  player statistics
