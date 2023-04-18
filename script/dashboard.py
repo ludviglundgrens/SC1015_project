@@ -52,9 +52,11 @@ else:
     player_df = df[df["col"]==1]
     # Plot all players
     st.write(player_df)
+    ##Image file paths
     imageString = '../data/images/clubs/' + player_df.loc[df['Player'] == player, 'Squad'].item() + ".png"
     leagueString = '../data/images/leagues/' + player_df.loc[df['Player'] == player, 'Comp'].item() + ".png"
     playerString = '../data/images/players/' + player_df.loc[df['Player'] == player, 'Player'].item() + ".png"
+    ##If player image does not exist, default image
     if os.path.isfile(playerString):
         playerImage = Image.open(playerString)
     else:
@@ -63,14 +65,65 @@ else:
     league = Image.open(leagueString)
     st.image([playerImage,logo,league,],width=100)
 
-    fig = px.scatter(df,
-                    x = "Goals", 
-                    y = "market_value_in_eur", 
-                    hover_name = "Player", 
-                    color = "col",
-                    labels = {'col': 'Choosen player:', 'market_value_in_eur': 'Market Value (EUR)'},
-                    color_discrete_sequence=px.colors.qualitative.G10)
-    st.plotly_chart(fig)
+    stat = st.selectbox("Select the statistic to analyze", options = ["MP","Age","Starts","Min","90s","Goals","Shots","SoT","SoT%","G/Sh","G/SoT","ShoDist",
+                                                               "ShoFK","ShoPK","PKatt","PasTotCmp","PasTotAtt","PasTotCmp%","PasTotDist",
+                                                               "PasTotPrgDist","PasShoCmp","PasShoAtt","PasShoCmp%","PasMedCmp","PasMedAtt",
+                                                               "PasMedCmp%","PasLonCmp","PasLonAtt","PasLonCmp%","Assists","PasAss","Pas3rd",
+                                                               "PPA","CrsPA","PasProg","PasAtt","PasLive","PasDead","PasFK","TB","PasPress","Sw",
+                                                               "PasCrs","CK","CkIn","CkOut","CkStr","PasGround","PasLow","PasHigh","PaswLeft",
+                                                               "PaswRight","PaswHead","TI","PaswOther","PasCmp","PasOff","PasOut","PasInt","PasBlocks",
+                                                               "SCA","ScaPassLive","ScaPassDead","ScaDrib","ScaSh","ScaFld","ScaDef","GCA",
+                                                               "GcaPassLive","GcaPassDead","GcaDrib","GcaSh","GcaFld","GcaDef","Tkl","TklWon",
+                                                               "TklDef3rd","TklMid3rd","TklAtt3rd","TklDri","TklDriAtt","TklDri%","TklDriPast",
+                                                               "Press","PresSucc","Press%","PresDef3rd","PresMid3rd","PresAtt3rd","Blocks","BlkSh",
+                                                               "BlkShSv","BlkPass","Int","Tkl+Int","Clr","Err","Touches","TouDefPen","TouDef3rd",
+                                                               "TouMid3rd","TouAtt3rd","TouAttPen","TouLive","DriSucc","DriAtt","DriSucc%","DriPast",
+                                                               "DriMegs","Carries","CarTotDist","CarPrgDist","CarProg","Car3rd","CPA","CarMis","CarDis",
+                                                               "RecTarg","Rec","Rec%","RecProg","CrdY","CrdR","2CrdY","Fls","Fld","Off","Crs","TklW",
+                                                               "PKwon","PKcon","OG","Recov","AerWon","AerLost","AerWon%"])
+
+    scope = st.selectbox("Select the scope to analyze", options = ["All", "Same League", "Same Club"])
+    if scope == "All":
+        st.write("Comparison to all players in database")
+        fig = px.scatter(df,
+                        x = stat, 
+                        y = "market_value_in_eur", 
+                        hover_name = "Player", 
+                        color = "col",
+                        labels = {'col': 'Choosen player:', 'market_value_in_eur': 'Market Value (EUR)'},
+                        color_discrete_sequence=px.colors.qualitative.G10)
+        st.plotly_chart(fig)
+        percentile_rank = round((df[df[stat] <= (player_df.loc[df['Player'] == player, stat].item())].size / df.size) * 100,2)
+        st.write("{0} is in the {1}th percentile in {2}".format(player,percentile_rank,stat))
+        
+    if scope == "Same League":
+        st.write("Comparison to all players in", pLeague)
+        fig = px.scatter(df.loc[df['Comp'] == pLeague],
+                        x = stat, 
+                        y = "market_value_in_eur", 
+                        hover_name = "Player", 
+                        color = "col",
+                        labels = {'col': 'Choosen player:', 'market_value_in_eur': 'Market Value (EUR)'},
+                        color_discrete_sequence=px.colors.qualitative.G10)
+        st.plotly_chart(fig)
+        percentile_rank = round((df.loc[df['Comp'] == pLeague][df.loc[df['Comp'] == pLeague][stat] <= (player_df.loc[df['Player'] == player, stat].item())].size / df.loc[df['Comp'] == pLeague].size) * 100,2)
+        st.write("{0} is in the {1}th percentile in {2}".format(player,percentile_rank,stat))
+        
+    if scope == "Same Club":
+        st.write("Comparison to all players in", pClub, "," , pLeague)
+        fig = px.scatter(df.loc[df['Squad'] == pClub],
+                        x = stat, 
+                        y = "market_value_in_eur", 
+                        hover_name = "Player", 
+                        color = "col",
+                        labels = {'col': 'Choosen player:', 'market_value_in_eur': 'Market Value (EUR)'},
+                        color_discrete_sequence=px.colors.qualitative.G10)
+        st.plotly_chart(fig)
+        percentile_rank = round((df.loc[df['Squad'] == pClub][df.loc[df['Squad'] == pClub][stat] <= (player_df.loc[df['Player'] == player, stat].item())].size / df.loc[df['Squad'] == pClub].size) * 100,2)
+        st.write("{0} is in the {1}th percentile in {2}".format(player,percentile_rank,stat))
+    
+
+    
 
     st.write("### Model value prediction for", player)
     pred_df = player_df.drop(columns=["market_value_in_eur", "col"]).select_dtypes(exclude=['object'])

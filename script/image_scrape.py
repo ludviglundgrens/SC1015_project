@@ -37,5 +37,5 @@ for j in range(0,5):
                 img_name = img_name[:-3]
                 # Download the image and save it with the new name
                 img_data = requests.get(img_url).content
-                with open('images/{}.png'.format(img_name), 'wb') as f:
+                with open('../data/images/players{}.png'.format(img_name), 'wb') as f:
                     f.write(img_data)
