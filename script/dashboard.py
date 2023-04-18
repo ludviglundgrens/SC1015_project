@@ -35,13 +35,15 @@ def load_data():
     return data, regr
 
 df, model = load_data()
-df = df.sort_values(['Player'],
-              ascending = [True])
-player = st.selectbox("Select the player to analyze", pd.unique(df["Player"]))
+df = df.sort_values(['Comp','Squad','Player'],
+              ascending = [True,True,True])
+pLeague = st.selectbox("Sort by League", pd.unique(df["Comp"]))
+pClub = st.selectbox("Sort by Club", pd.unique(df.loc[df['Comp'] == pLeague, 'Squad']))
+player = st.selectbox("Select the player to analyze", pd.unique(df.loc[df['Squad'] == pClub, 'Player']))
 placeholder = st.empty()
 
 if not player:
-    st.error("Please select a players", icon="🚨")
+    st.error("Please select a player", icon="🚨")
 else:
     st.write("### Input data for", player)
 
