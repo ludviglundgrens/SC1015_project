@@ -16,7 +16,7 @@ st.title("Valuation comparison")
 
 @st.cache_data # make this function only run once (memoized)
 def load_data():
-    data = pd.read_csv("./data/merged_data.csv")
+    data = pd.read_csv(os.path.dirname(os.getcwd())+"/data/merged_data.csv")
     positions = [(data.Pos == "FW") | (data.Pos == "FWMF") | (data.Pos == "FWDF"),
                 (data.Pos == "MF") | (data.Pos == "MFFW") | (data.Pos == "MFDF"),
                 (data.Pos == "DF") | (data.Pos == "DFMF") | (data.Pos == "DFFW")]
