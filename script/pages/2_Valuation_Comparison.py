@@ -60,12 +60,17 @@ st.write("### Best Value XI")
 st.write("Picking the most undervalued players in a standard 4-4-2 formation, our algorithm deems this squad to be the best value for money")
 xCoord = [0.25,0.5,0,0.25,0.5,0.75,0,0.25,0.5,0.75,0.375]
 yCoord = [1,1,0.75,0.75,0.75,0.75,0.5,0.5,0.5,0.5,0.25]
+sort_order = ["FW","FWMF","FWDF","MF","MFFW","MFDF","DF","DFMF","DFFW","GK"]
+
+
 valueEleven = ['Moise Kean','Joel Pohjanpalo','Baptiste Santamaria','Cesc Fàbregas','Kalvin Phillips',
               'Wilfred Ndidi','Chris Richards','Leonardo Spinazzola','Lennard Maloney','Andrea Conti','David Raya']
 
 
 selectedPlayers = df['Player'].isin(valueEleven)
 df11 = df[selectedPlayers]
+df11['Pos']= pd.Categorical(df11['Pos'], categories=sort_order, ordered=True)
+df11=df11.sort_values('Pos')
 df11 = df11.assign(xCoord = xCoord)
 df11 = df11.assign(yCoord = yCoord)
 
@@ -76,7 +81,7 @@ fig = px.scatter(df11,
                 width = 600,
                 height = 800,
                 opacity = 0,
-                hover_data={'xCoord':False,'yCoord':False,'Squad':True,'Comp':True},
+                hover_data={'xCoord':True,'yCoord':True,'Squad':True,'Comp':True},
                 color_discrete_sequence=px.colors.qualitative.G10)
 
 
