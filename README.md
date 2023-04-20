@@ -30,7 +30,7 @@ This is a mini-project where we research the valuation of soccer players as a fu
 ## Steps Taken: 
 - Merge datasets
 - Filter out player_valuation dataset for dates before start of this season (2021-08-13 : 2022-08-06, start of Premiere League). 
-- list attributes important to positions
+- List attributes important to positions
 - Perform Exploratory Data Analysis & Visualisations
 - Run models on dataset
 - Choose best model with high R^2 and least overfitting
