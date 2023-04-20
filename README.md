@@ -26,17 +26,16 @@ This is a mini-project where we research the valuation of soccer players as a fu
 - Dataset only contains outfield player attributes. Goalkeeping attributes not present, hence Goalkeepers need to be removed to prevent innacurate valuations.
 - Attribute's importance varies between Attackers, Midfielders, Defenders. Hence, needed to filter out which attributes were important for each player. We first filtered it manually based on our football knowledge, trying to keep as many attributes as possible (below are tables of the manually filtered attributes). Then, we used SKLearn to find out which attributes were less important and could be removed.
 
-## To do:
-- Choose best model
-- Do Neural Network
-- Highlight Undervalued Players
 
-## Done: 
+## Steps Taken: 
 - Merge datasets
 - Filter out player_valuation dataset for dates before start of this season (2021-08-13 : 2022-08-06, start of Premiere League). 
 - list attributes important to positions
-- Remove Goalkeepers from Dataset
 - Perform Exploratory Data Analysis & Visualisations
+- Run models on dataset
+- Choose best model with high R^2 and least overfitting
+- Set Up StreamLit Dashboard
+- Showcase undervalued players
 
 ## Atrributes:
 
@@ -139,6 +138,7 @@ Age, MP, Min, 90s, Goals, SoT, SoT%, G/Sh, G/SoT, ShoDist, ShoFK, ShoPK, Assists
 Age, MP, Min, 90s, Goals, PasTotCmp, PasTotAtt, PasTotCmp%, PasTotDist, PasTotPrgDist, PasShoCmp%, PasMedCmp%, PasLonCmp%, Assists, PasAss, PPA, CrsPA, PasProg, TB, PasPress, Sw, PasCrs, PasGround, PasLow, PasHigh, PaswLeft, PaswRight, PaswHead, TI, PaswOther, PasCmp, PasOff, PasOut, PasInt, PasBlocks, ScaDef, GCA, GcaSh, GcaDef, Tkl, TklWon, TklDef3rd, TklMid3rd, TklAtt3rd, TklDri, TklDriAtt, TklDri%, TklDriPast, Press, PresSucc, Press%, PresDef3rd, PresMid3rd, PresAtt3rd, Blocks, BlkSh, BlkShSv, BlkPass, Int, Tkl+Int, Clr, Err, Touches, TouDefPen, TouDef3rd, TouMid3rd, TouAtt3rd, TouLive, DriSucc%, Carries, CarTotDist, CarPrgDist, CarProg, Car3rd, CarMis, CarDis, RecTarg, Rec, Rec%, RecProg, CrdY, CrdR, Fls, Fld, Off, Crs, TklW, PKcon, OG, Recov, AerWon, AerLost, AerWon% 
 
 </details>
+
 
 ## Sources 
 https://blog.streamlit.io/how-to-build-a-real-time-live-dashboard-with-streamlit/
