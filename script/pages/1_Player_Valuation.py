@@ -56,17 +56,21 @@ else:
     # Plot all players
     st.write(player_df)
     ##Image file paths
-    imageString = './data/images/clubs/' + player_df.loc[df['Player'] == player, 'Squad'].item() + ".png"
-    leagueString = './data/images/leagues/' + player_df.loc[df['Player'] == player, 'Comp'].item() + ".png"
-    playerString = './data/images/players/' + player_df.loc[df['Player'] == player, 'Player'].item() + ".png"
+    imagePaths = ["","",""] ##list of image paths
+    imagePaths[0] = './data/images/clubs/' + player_df.loc[df['Player'] == player, 'Squad'].item() + ".png"
+    imagePaths[1] = './data/images/leagues/' + player_df.loc[df['Player'] == player, 'Comp'].item() + ".png"
+    imagePaths[2] = './data/images/players/' + player_df.loc[df['Player'] == player, 'Player'].item() + ".png"
     ##If player image does not exist, default image
-    if os.path.isfile(playerString):
-        playerImage = Image.open(playerString)
-    else:
-        playerImage = Image.open('./data/images/players/!noImage.png')
+    for i in range(0,3):
+        if os.path.isfile(imagePaths[i]):
+            pass
+        else:
+            imagePaths[i] = './data/images/players/!noImage.png'
     
-    logo = Image.open(imageString)
-    league = Image.open(leagueString)
+    
+    logo = Image.open(imagePaths[0])
+    league = Image.open(imagePaths[1])
+    playerImage = Image.open(imagePaths[2])
     st.image([playerImage,logo,league,],width=100)
 
     stat = st.selectbox("Select the statistic to analyze", options = ["MP","Age","Starts","Min","90s","Goals","Shots","SoT","SoT%","G/Sh","G/SoT","ShoDist",
