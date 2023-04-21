@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 import plotly.express as px
 import streamlit as st
+import os
 from sklearn.linear_model import RidgeCV, LinearRegression
 from sklearn.model_selection import train_test_split
 from PIL import Image
@@ -59,12 +60,18 @@ else:
     leagueString = './data/images/leagues/' + player_df.loc[df['Player'] == player, 'Comp'].item() + ".png"
     playerString = './data/images/players/' + player_df.loc[df['Player'] == player, 'Player'].item() + ".png"
     ##If player image does not exist, default image
-    if playerString:
+    if os.path.isfile(playerString):
         playerImage = Image.open(playerString)
     else:
         playerImage = Image.open('./data/images/players/!noImage.png')
-    logo = Image.open(imageString)
-    league = Image.open(leagueString)
+    if os.path.isfile(imageString):
+        logo = Image.open(imageString)
+    else:
+        logo = Image.open('./data/images/players/!noImage.png')
+    if os.path.isfile(leagueString):
+        league = Image.open(leagueString)
+    else: 
+        league = Image.open('./data/images/players/!noImage.png')
     st.image([playerImage,logo,league,],width=100)
 
     stat = st.selectbox("Select the statistic to analyze", options = ["MP","Age","Starts","Min","90s","Goals","Shots","SoT","SoT%","G/Sh","G/SoT","ShoDist",

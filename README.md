@@ -5,6 +5,10 @@ This is a mini-project where we research the valuation of soccer players as a fu
 ```console
   streamlit run ./script/dashboard.py
 ```
+
+Also a running instance of the dashboard can be found here:
+
+
 ## Contributors
 - @ludviglundgrens (N2202950F@e.ntu.edu.sg)
 - @zaphrode (NAHID001@e.ntu.edu.sg)
@@ -71,7 +75,6 @@ This is a mini-project where we research the valuation of soccer players as a fu
   Age, MP, Min, 90s, Goals, Shots, SoT, SoT%, G/Sh, G/SoT, ShoDist, ShoFK, ShoPK, PasTotCmp, PasTotCmp%, PasTotPrgDist, Assists, PasAss, PPA, CrsPA, PasProg, PasCrs, SCA, ScaPassLive, ScaPassDead, ScaDrib, ScaSh, ScaFld, ScaDef, GCA, GcaPassLive, GcaPassDead, GcaDrib, GcaSh, GcaFld, GcaDef, Tkl, TklWon, TklAtt3rd, Press%, PresSucc, Touches, TouAtt3rd, TouAttPen, DriSucc, DriSucc%, DriPast, Carries, CarPrgDist, CarProg, Car3rd, CPA, CarMis, CarDis, RecTarg, Rec, Rec%, RecProg, CrdY, CrdR, Fls, Fld, Off, Crs, TklW, PKwon, AerWon, AerWon%
 
 </details>
-
 
 <details>
   <summary>Midfielders</summary>
