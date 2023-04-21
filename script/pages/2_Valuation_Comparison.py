@@ -2,7 +2,6 @@ import pandas as pd
 import numpy as np
 import plotly.express as px
 import streamlit as st
-import os
 from sklearn.linear_model import RidgeCV, LinearRegression
 from sklearn.model_selection import train_test_split
 from PIL import Image
@@ -16,7 +15,7 @@ st.title("Valuation comparison")
 
 @st.cache_data # make this function only run once (memoized)
 def load_data():
-    data = pd.read_csv(os.path.dirname(os.getcwd())+"/data/merged_data.csv")
+    data = pd.read_csv("./data/merged_data.csv")
     positions = [(data.Pos == "FW") | (data.Pos == "FWMF") | (data.Pos == "FWDF"),
                 (data.Pos == "MF") | (data.Pos == "MFFW") | (data.Pos == "MFDF"),
                 (data.Pos == "DF") | (data.Pos == "DFMF") | (data.Pos == "DFFW")]
@@ -98,7 +97,7 @@ fig.update_yaxes(title_text='')
 fig.update_traces(marker={'size': 100})
 
 import base64
-pitch = base64.b64encode(open(os.path.dirname(os.getcwd())+"/data/images/data/pitch.jpg",'rb').read())
+pitch = base64.b64encode(open("./data/images/data/pitch.jpg",'rb').read())
 fig.update_layout(images = [dict(source='data:image/jpg;base64,{}'.format(pitch.decode()), xref="paper", yref="paper",
                     x=0, y=1,
                     sizex=1, sizey=1,
@@ -108,7 +107,7 @@ fig.update_layout(images = [dict(source='data:image/jpg;base64,{}'.format(pitch.
                     layer="below")])
 
 for index, row in df11.iterrows():
-    imageLocation = os.path.dirname(os.getcwd())+'/data/images/players/'+row['Player'] +'.png'
+    imageLocation = './data/images/players/'+row['Player'] +'.png'
     imageEncode = base64.b64encode(open(imageLocation,'rb').read())
     fig.add_layout_image(dict(source='data:image/png;base64,{}'.format(imageEncode.decode()),
                         x=row['xCoord']+0.125,
@@ -119,9 +118,6 @@ for index, row in df11.iterrows():
                         xanchor="center",
                         yanchor="middle",
                         layer="above"))
-
-
-
 
 fig.update_layout()
 st.plotly_chart(fig)
@@ -165,7 +161,7 @@ fig.update_yaxes(title_text='')
 fig.update_traces(marker={'size': 100})
 
 import base64
-pitch = base64.b64encode(open(os.path.dirname(os.getcwd())+"/data/images/data/pitch.jpg",'rb').read())
+pitch = base64.b64encode(open("./data/images/data/pitch.jpg",'rb').read())
 fig.update_layout(images = [dict(source='data:image/jpg;base64,{}'.format(pitch.decode()), xref="paper", yref="paper",
                     x=0, y=1,
                     sizex=1, sizey=1,
@@ -175,7 +171,7 @@ fig.update_layout(images = [dict(source='data:image/jpg;base64,{}'.format(pitch.
                     layer="below")])
 
 for index, row in df11o.iterrows():
-    imageLocation = os.path.dirname(os.getcwd())+'/data/images/players/'+row['Player'] +'.png'
+    imageLocation = './data/images/players/'+row['Player'] +'.png'
     imageEncode = base64.b64encode(open(imageLocation,'rb').read())
     fig.add_layout_image(dict(source='data:image/png;base64,{}'.format(imageEncode.decode()),
                         x=row['xCoord']+0.125,
@@ -186,8 +182,6 @@ for index, row in df11o.iterrows():
                         xanchor="center",
                         yanchor="middle",
                         layer="above"))
-
-
 
 
 fig.update_layout()

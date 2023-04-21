@@ -2,7 +2,6 @@ import pandas as pd
 import numpy as np
 import plotly.express as px
 import streamlit as st
-import os
 from sklearn.linear_model import RidgeCV, LinearRegression
 from sklearn.model_selection import train_test_split
 from PIL import Image
@@ -16,7 +15,7 @@ st.title("Analysis of player valuation")
 
 @st.cache_data # make this function only run once (memoized)
 def load_data():
-    csvFileLocation = os.path.dirname(os.getcwd())+"/data/merged_data.csv"
+    csvFileLocation = "./data/merged_data.csv"
     data = pd.read_csv(csvFileLocation)
     positions = [(data.Pos == "FW") | (data.Pos == "FWMF") | (data.Pos == "FWDF"),
                 (data.Pos == "MF") | (data.Pos == "MFFW") | (data.Pos == "MFDF"),
@@ -56,14 +55,14 @@ else:
     # Plot all players
     st.write(player_df)
     ##Image file paths
-    imageString = os.path.dirname(os.getcwd())+'/data/images/clubs/' + player_df.loc[df['Player'] == player, 'Squad'].item() + ".png"
-    leagueString = os.path.dirname(os.getcwd())+'/data/images/leagues/' + player_df.loc[df['Player'] == player, 'Comp'].item() + ".png"
-    playerString = os.path.dirname(os.getcwd())+'/data/images/players/' + player_df.loc[df['Player'] == player, 'Player'].item() + ".png"
+    imageString = './data/images/clubs/' + player_df.loc[df['Player'] == player, 'Squad'].item() + ".png"
+    leagueString = './data/images/leagues/' + player_df.loc[df['Player'] == player, 'Comp'].item() + ".png"
+    playerString = './data/images/players/' + player_df.loc[df['Player'] == player, 'Player'].item() + ".png"
     ##If player image does not exist, default image
-    if os.path.isfile(playerString):
+    if playerString:
         playerImage = Image.open(playerString)
     else:
-        playerImage = Image.open(os.path.dirname(os.getcwd())+'/data/images/players/!noImage.png')
+        playerImage = Image.open('./data/images/players/!noImage.png')
     logo = Image.open(imageString)
     league = Image.open(leagueString)
     st.image([playerImage,logo,league,],width=100)
