@@ -132,7 +132,7 @@ else:
     
     st.write("### Model value prediction for", player)
     pred_df = player_df.drop(columns=["market_value_in_eur", "col"]).select_dtypes(exclude=['object'])
-    pred_value = model.predict(pred_df).item(0)
+    pred_value = np.exp(model.predict(pred_df).item(0))
     act_value = player_df["market_value_in_eur"].values.item(0)
     diff_pct = 100*(act_value/pred_value - 1)
     st.write("Estimated player value is", str(round(pred_value/(10**6),2)), "MEUR.")
