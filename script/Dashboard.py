@@ -10,6 +10,6 @@ with open('./README.md') as f:
  
 readme = '\n'.join(lines)
 
-st.sidebar.success("Select a demo above.")
+st.sidebar.success("Select one of the pages above to see our findings.")
 
 st.markdown(readme)
