@@ -64,14 +64,9 @@ else:
         playerImage = Image.open(playerString)
     else:
         playerImage = Image.open('./data/images/players/!noImage.png')
-    if os.path.isfile(imageString):
-        logo = Image.open(imageString)
-    else:
-        logo = Image.open('./data/images/players/!noImage.png')
-    if os.path.isfile(leagueString):
-        league = Image.open(leagueString)
-    else: 
-        league = Image.open('./data/images/players/!noImage.png')
+    
+    logo = Image.open(imageString)
+    league = Image.open(leagueString)
     st.image([playerImage,logo,league,],width=100)
 
     stat = st.selectbox("Select the statistic to analyze", options = ["MP","Age","Starts","Min","90s","Goals","Shots","SoT","SoT%","G/Sh","G/SoT","ShoDist",

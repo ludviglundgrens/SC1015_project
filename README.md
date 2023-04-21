@@ -6,8 +6,7 @@ This is a mini-project where we research the valuation of soccer players as a fu
   streamlit run ./script/dashboard.py
 ```
 
-Also a running instance of the dashboard can be found here:
-
+Also a running instance of the dashboard can be found here: (SC1015 - Football player valuation analysis)[https://ludviglundgrens-sc1015-project-scriptdashboard-4vmkrl.streamlit.app/]
 
 ## Contributors
 - @ludviglundgrens (N2202950F@e.ntu.edu.sg)
