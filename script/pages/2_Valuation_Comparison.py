@@ -62,8 +62,9 @@ yCoord = [1,1,0.75,0.75,0.75,0.75,0.5,0.5,0.5,0.5,0.25]
 sort_order = ["FW","FWMF","FWDF","MF","MFFW","MFDF","DF","DFMF","DFFW","GK"]
 
 
-bargainEleven = ['Felipe','Álvaro González','Kike Hermoso','Óscar Gil','Luca Wollschläger','Vanderson',
-                 'Davide Marfella','Ibrahima Diallo','Fabinho','Luca Gagliano','Jonas Hofmann']
+bargainEleven = ["Luigi Samele","Luca Wollschläger","Pedro Ortiz","Cristian Volpato","Evan Ferguson",
+"Manu García","Sergio Santos","Kike Hermoso","Óscar Gil","Julian Eitschberger","Davide Marfella"
+]
 
 
 selectedPlayers = df['Player'].isin(bargainEleven)
@@ -126,8 +127,9 @@ st.plotly_chart(fig)
 st.write("### Overvalued XI")
 st.write("Our algorithm picked out this team to command transfer fees far beyond their recent contributions on the pitch.")
 
-valueEleven = ['Moise Kean','Joel Pohjanpalo','Baptiste Santamaria','Cesc Fàbregas','Kalvin Phillips',
-              'Wilfred Ndidi','Chris Richards','Leonardo Spinazzola','Lennard Maloney','Andrea Conti','David Raya']
+valueEleven = ['Liam Delap','Wesley Moraes','Kalvin Phillips','Wilfred Ndidi','Gianluca Gaetano',
+'Federico Chiesa','Leonardo Spinazzola','Wesley Fofana','James Justin','Ben Chilwell','Sergio Rico'
+]
 
 
 selectedPlayers = df['Player'].isin(valueEleven)
