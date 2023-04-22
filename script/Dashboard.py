@@ -6,7 +6,7 @@ st.set_page_config(
 )
 
 with open('./README.md') as f:
-    lines = f.readlines()
+    lines = f.readlines()[0:42]
  
 readme = '\n'.join(lines)
 
